@@ -1,7 +1,10 @@
 // require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+var cors = require("cors");
 const scoresRouter = require("./routes/scores.js");
+
+app.use(cors());
 
 const app = express();
 
