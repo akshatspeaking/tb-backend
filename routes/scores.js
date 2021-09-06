@@ -25,8 +25,10 @@ router.post("/", async (req, res) => {
       scoreList.find((obj) => obj.id === newScore.id)
     );
 
+    const topten = scoreList.slice(0, 10);
+
     //
-    res.status(200).json({ scoreList, rank });
+    res.status(200).json({ scoreList: topten, rank });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
