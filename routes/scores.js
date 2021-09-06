@@ -5,7 +5,7 @@ const Score = require("../models/Score");
 router.get("/", async (req, res) => {
   try {
     // console.log("Get scoreboard");
-    const scoreList = await Score.find().sort({ score: 1 }).limit(10);
+    const scoreList = await Score.find().sort({ score: -1 }).limit(10);
     res.json(scoreList);
   } catch (error) {
     res.status(500).json({ message: error.message });
