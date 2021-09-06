@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
     );
 
     //
-    res.status(200).json(scoreList, rank);
+    res.status(200).json({ scoreList, rank });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
