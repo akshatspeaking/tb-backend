@@ -16,6 +16,6 @@ app.use(express.json());
 
 app.use("/scores", scoresRouter);
 
-app.listen(5000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("Server started");
 });
