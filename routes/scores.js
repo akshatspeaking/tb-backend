@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
       score: req.body.score,
     });
     const newScore = await score.save();
-    const scoreList = await Score.find().sort({ score: 1 });
+    const scoreList = await Score.find().sort({ score: -1 });
 
     const rank = scoreList.indexOf(
       scoreList.find((obj) => obj.id === newScore.id)
