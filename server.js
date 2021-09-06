@@ -4,9 +4,9 @@ const mongoose = require("mongoose");
 var cors = require("cors");
 const scoresRouter = require("./routes/scores.js");
 
-app.use(cors());
-
 const app = express();
+
+app.use(cors());
 
 mongoose.connect(process.env.ATLAS_URI);
 
