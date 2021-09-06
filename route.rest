@@ -1,0 +1,12 @@
+GET http://localhost:5000/scores
+
+
+###
+
+POST http://localhost:5000/scores 
+Content-type:application/json
+
+{
+  "name": "Username2",
+  "score": 590
+}
