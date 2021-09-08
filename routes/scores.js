@@ -5,14 +5,11 @@ const Score = require("../models/Score");
 router.get("/", async (req, res) => {
   try {
     const scoreList = await Score.find().sort({ score: -1 });
-
     const numberOfGames = scoreList.length;
-
     const averageScore =
       scoreList.reduce((acc, cv) => {
         return acc + cv.score;
       }, 0) / numberOfGames;
-
     const topten = scoreList.slice(0, 10);
 
     res.status(200).json({ scoreList: topten, numberOfGames, averageScore });
@@ -29,21 +26,16 @@ router.post("/", async (req, res) => {
     });
     const newScore = await score.save();
     const scoreList = await Score.find().sort({ score: -1 });
-
     const rank = scoreList.indexOf(
       scoreList.find((obj) => obj.id === newScore.id)
     );
-
     const numberOfGames = scoreList.length;
-
     const averageScore =
       scoreList.reduce((acc, cv) => {
         return acc + cv.score;
       }, 0) / numberOfGames;
-
     const topten = scoreList.slice(0, 10);
 
-    //
     res
       .status(200)
       .json({ scoreList: topten, rank, numberOfGames, averageScore });
